@@ -62,4 +62,14 @@ void drawRectOutline(u_char colMin, u_char rowMin, u_char width, u_char height,
 		     u_int colorBGR);
 #endif // included
 
+void drawString11x16(u_char col, u_char row, char *string, 
+		   u_int fgColorBGR, u_int bgColorBGR);
 
+void drawChar11x16(u_char col, u_char row, char c, 
+		 u_int fgColorBGR, u_int bgColorBGR);
+
+void drawString8x12(u_char col, u_char row, char *string, 
+		   u_int fgColorBGR, u_int bgColorBGR);
+
+void drawChar8x12(u_char col, u_char row, char c, 
+		 u_int fgColorBGR, u_int bgColorBGR);
