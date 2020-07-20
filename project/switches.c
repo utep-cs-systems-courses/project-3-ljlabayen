@@ -49,10 +49,10 @@ void switch_interrupt_handler() {
   }
   else if (p2val & SW4 ? 0 : 1){ //used if p2val and SW4 is true (button 4 is pressed)
     state = 4;
-    clearScreen(COLOR_BLACK);
+    //    clearScreen(COLOR_BLACK);
     drawString11x16(20,50,"test",COLOR_BLUE,COLOR_BLACK);
     __delay_cycles(20000000);
-    clearScreen(COLOR_BLACK);
+    //    clearScreen(COLOR_BLACK);
     drawString11x16(20,50,"testtest",COLOR_BLUE,COLOR_BLACK);
     redrawScreen = 1;
     state_advance(4);
