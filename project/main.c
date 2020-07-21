@@ -6,6 +6,7 @@
 #include "lcdutils.h"
 #include "lcddraw.h"
 #include "stateMachine.h"
+#include "lcdDisplay.h"
 
 void drawBackground(){
   clearScreen(COLOR_BLUE);
@@ -41,6 +42,7 @@ void main(void)
   drawString11x16(32,50, "test", COLOR_PINK, COLOR_BLUE);
   //drawString8x12(20,90,"test2", COLOR_PINK, COLOR_BLUE);
   drawString5x7(50,130,"test2", COLOR_PINK, COLOR_BLUE);
+  triangleShow();
   or_sr(0x18);  // CPU off, GIE on
 
   for(;;) {

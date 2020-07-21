@@ -12,7 +12,7 @@ AR		= msp430-elf-ar
 all: main.elf 
 
 #additional rules for files
-main.elf: ${COMMON_OBJECTS} main.o p2_interrupt_handler.o led.o switches.o buzzer.o stateMachineAssembly.o ../project/lib/libTimer.a
+main.elf: ${COMMON_OBJECTS} main.o p2_interrupt_handler.o led.o switches.o buzzer.o lcdDisplay.o stateMachineAssembly.o ../project/lib/libTimer.a
 	${CC} ${CFLAGS} ${LDFLAGS} -o $@ $^ -lLcd -lp2sw -lTimer
 
 load: main.elf
