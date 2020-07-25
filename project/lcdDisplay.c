@@ -15,6 +15,15 @@ void triangle(u_char colMin, u_char rowMin, u_char width, u_char height, u_int c
     drawPixel(i, i, colorBGR);
   }
 }
+
+void drawPinkTriangle(){
+    int j;
+  for (j=30; j<60; j++){
+    int row = j;
+    for (int col=j; col < 100 - j; col++)
+      drawPixel(col+15, row, COLOR_HOT_PINK);	      
+  }
+}
   
 void drawTriangle(int color){
     int j;
@@ -35,6 +44,11 @@ void triangleShow() {
     color = color << 1;
     drawTriangle(color);
   }
+}
+
+void drawRect() {
+  fillRectangle(37,22,57,47, COLOR_BLACK);
+  fillRectangle(42,27,47,37, COLOR_YELLOW);
 }
 
 void drawInit() {

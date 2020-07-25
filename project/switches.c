@@ -34,20 +34,18 @@ void switch_interrupt_handler() {
   
   if (p2val & SW1 ? 0 : 1){ //used if p2val and SW1 is true (button 1 is pressed)
     switch_state_changed = 1;
-    // state_advance(1);
+    redrawScreen = 1;
   }
   else if (p2val & SW2 ? 0 : 1){ //used if p2val and SW2 is true (button 2 is pressed)
     switch_state_changed = 2;
-    // state_advance(2);
+    redrawScreen = 1;
   }
   else if (p2val & SW3 ? 0 : 1){ //used if p2val and SW3 is true (button 3 is pressed)
     switch_state_changed = 3;
     redrawScreen = 1;
-    //  state_advance(3);
   }
   else if (p2val & SW4 ? 0 : 1){ //used if p2val and SW4 is true (button 4 is pressed)
     switch_state_changed = 4;
-    //   state_advance(4);
     redrawScreen = 1;
   }
   else {

@@ -1,8 +1,9 @@
 #ifndef lcdDisplay_included
 #define lcdDisplay_included
-void triangle(u_char colMin, u_char rowMin, u_char width, u_char height, u_int colorBGR);
+void drawPinkTriangle();
 void drawTriangle(int color);
 void triangleShow();
+void drawRect();
 void clearWindow();
 void drawInit();
 
