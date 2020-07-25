@@ -19,7 +19,7 @@ state_advance:
 case1:
 	add #1, redrawScreen
 	call #drawPinkTriangle
-	call #randomSong
+	call #buzz
 	call #redLights
 	jmp end
 case2:

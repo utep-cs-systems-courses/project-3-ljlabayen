@@ -1,6 +1,7 @@
 #include <msp430.h>
 #include "libTimer.h"
 #include "buzzer.h"
+#include "buzzerState.h"
 
 // define musical note and its frequency
 #define A3 2273
@@ -42,6 +43,9 @@ void beep(){
     buzzer_set_period(notes[i]); // call buzzer_set_period the a single note as parameter
     __delay_cycles(1200000); // delay the program and wait x clock cycles
     }
+}
+void buzz(){
+  randomBuzz();
 }
 // random set of notes to create a small tune
 void randomSong(){
