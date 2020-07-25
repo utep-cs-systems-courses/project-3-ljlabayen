@@ -2,12 +2,11 @@
 #include "led.h"
 #include "switches.h"
 #include "buzzer.h"
-#include "stateMachine.h"
+#include "stateMachineAssembly.h"
 
 void led_init()
 {
   P1DIR |= LEDS;		// bits attached to leds are output
-  switch_state_changed = 1;
 }
 
 // green blinking lights
@@ -47,9 +46,9 @@ void bothLights(){
 void dimLights(){
   for(int j= 0; j <10000; j++){ // turn LEDs on and off 10000 times
     P1OUT = LED_RED;
-    P1OUT = LED_GREEN;
+    // P1OUT = LED_GREEN;
     P1OUT = !LED_RED;
-    P1OUT = !LED_GREEN;
+    // P1OUT = !LED_GREEN;
   }
 }
 
@@ -59,7 +58,7 @@ void dimBlink(){
     dimLights();
     __delay_cycles(2000000);
     P1OUT = !LED_RED;
-    P1OUT = !LED_GREEN;
+    // P1OUT = !LED_GREEN;
   }
 }
 

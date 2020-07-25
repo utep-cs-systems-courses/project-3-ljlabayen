@@ -1,6 +1,6 @@
-#ifndef assemblyCode_included
-#define assemblyCode_included
+#ifndef stateMachineAssembly_included
+#define stateMachineAssembly_included
 
-void state_advance(int state);
+void state_advance();
 
 #endif

@@ -13,7 +13,7 @@ void switch_init();
 void switch_interrupt_handler();
 //void stateCall(int state);
 
-extern char state, switch_state_down, switch_state_changed;
+extern char switch_state_down, switch_state_changed;
 extern int redrawScreen;
 
 #endif // included

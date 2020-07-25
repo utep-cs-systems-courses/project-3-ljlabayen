@@ -18,7 +18,7 @@ layerDraw(Layer *layers)
 	  break; 
 	} /* if check */
       } // for checking all layers at col, row
-      //      lcd_writeColor(color); 
+      lcd_writeColor(color); 
     } // for col
   } // for row
 } 
