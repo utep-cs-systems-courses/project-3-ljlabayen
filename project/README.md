@@ -1,11 +1,11 @@
 # Project 3
 
-This toy has 4 states that plays/shows different shapes, tones and lights
+This toy has 4 states that plays and draws simple shapes, tones and lights
 
 # To load program:
 ~~~
-cd /project
-make load
+$ cd /project
+$ make load
 ~~~
 # To clean
 ~~~
