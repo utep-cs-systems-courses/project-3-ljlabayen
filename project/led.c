@@ -9,21 +9,21 @@ void led_init()
   P1DIR |= LEDS;		// bits attached to leds are output
 }
 
-// green blinking lights
+// green blinking lights *not used for project 3
 void greenLights(){
   for(int i = 0; i < 10; i++){ // loop to blink the lights 10 times
-    P1OUT = LED_GREEN;         // turn on GREEN LED
+    P1OUT |= LED_GREEN;         // turn on GREEN LED
     __delay_cycles(800000);    // delay program at 800000 clock cycles
-    P1OUT = !LED_GREEN;        // turn off GREEN LED
+    P1OUT &= !LED_GREEN;        // turn off GREEN LED
     __delay_cycles(800000);    // delay again
   }
 }
 // red blinking lights
 void redLights(){
   for(int i = 0; i < 10; i++){ // loop to blink the lights 10 times
-    P1OUT = LED_RED;           // turn ON RED LED
+    P1OUT |= LED_RED;           // turn ON RED LED
     __delay_cycles(800000);    // delay program at 800000 clock cycles
-    P1OUT = !LED_RED;          // turn OFF RED LED
+    P1OUT &= !LED_RED;          // turn OFF RED LED
     __delay_cycles(800000);    // delay again
   }
 }
@@ -31,13 +31,13 @@ void redLights(){
 // alternating green and red lights while delaying clock cycles
 void bothLights(){
   for(int j = 0; j < 10; j++){
-    P1OUT = LED_RED;
+    P1OUT |= LED_RED;
     __delay_cycles(800000);
-    P1OUT = LED_GREEN;
+    P1OUT |= LED_GREEN;
     __delay_cycles(800000);
-    P1OUT = !LED_RED;
+    P1OUT &= !LED_RED;
     __delay_cycles(800000);
-    P1OUT = !LED_GREEN;
+    P1OUT &= !LED_GREEN;
     __delay_cycles(800000);
   }
 }
@@ -45,20 +45,17 @@ void bothLights(){
 // this method is used to blink the light fast enough to make it dim
 void dimLights(){
   for(int j= 0; j <10000; j++){ // turn LEDs on and off 10000 times
-    P1OUT = LED_RED;
-    // P1OUT = LED_GREEN;
-    P1OUT = !LED_RED;
-    // P1OUT = !LED_GREEN;
+    P1OUT |= LED_RED;
+    P1OUT &= !LED_RED;
   }
 }
 
-// dim blinking both LEDs
+// dim blinking both LEDs. *modified to one LED for project 3
 void dimBlink(){
   for(int i = 0; i < 20; i++){
     dimLights();
     __delay_cycles(2000000);
-    P1OUT = !LED_RED;
-    // P1OUT = !LED_GREEN;
+    P1OUT &= !LED_RED;
   }
 }
 

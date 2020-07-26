@@ -49,9 +49,7 @@ void switch_interrupt_handler() {
     redrawScreen = 1;
   }
   else {
-    clearWindow();
-    switch_state_changed = 0;
+    clearWindow();              //clear window after interrupt
+    switch_state_changed = 0;   //set state back to 0
   }
-  //  state_advance(); // call state advance using assigned value to state
-  //  drawString8x12(50,50,"testtest",COLOR_BLUE,COLOR_BLACK);
 }

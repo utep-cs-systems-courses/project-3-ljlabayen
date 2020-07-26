@@ -44,9 +44,7 @@ void beep(){
     __delay_cycles(1200000); // delay the program and wait x clock cycles
     }
 }
-void buzz(){
-  randomBuzz();
-}
+
 // random set of notes to create a small tune
 void randomSong(){
     int notes[] = {A4, 0, A3, 0, E3, 0, G3, 0, F4, 0, A4, 0, A3, 0, E3, 0, G3, 0, F4, 0};
@@ -74,7 +72,7 @@ void spongebobSong(){
     __delay_cycles(2000000);
   }
 }
-// method to play an old cellphone ring tone
+// method to play an simple error tone
 void errorSong(){
   int notes[] = {E4,0,E4,0,C5,0,C5,B4,B4,500,0};
 

@@ -12,14 +12,14 @@ JT:
 	.global state_advance
 state_advance:
 	cmp #5, &switch_state_changed	; compare switch to 5
-	jhs default
+	jhs default			; jump to default if there's carry
 	mov &switch_state_changed, r12
-	add r12, r12 		; make space
-	mov JT(r12), r0 	; put r12 into counter
+	add r12, r12 			; make space
+	mov JT(r12), r0 		; put r12 into counter
 case1:
-	add #1, redrawScreen
+	add #1, redrawScreen		; set redrawScreen = 1
 	call #drawPinkTriangle
-	call #buzz
+	call #randomBuzz
 	call #redLights
 	jmp end
 case2:

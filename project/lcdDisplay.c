@@ -1,6 +1,4 @@
 #include <msp430.h>
-#include <abCircle.h>
-#include <shape.h>
 #include "switches.h"
 #include "led.h"
 #include "buzzer.h"
@@ -10,12 +8,7 @@
 
 int redrawScreen;
 
-void triangle(u_char colMin, u_char rowMin, u_char width, u_char height, u_int colorBGR) {
-  for (int i = colMin; i < width; i++) {
-    drawPixel(i, i, colorBGR);
-  }
-}
-
+// draws pink triangle used for button/switch 1
 void drawPinkTriangle(){
     int j;
   for (j=30; j<60; j++){
@@ -24,7 +17,7 @@ void drawPinkTriangle(){
       drawPixel(col+15, row, COLOR_HOT_PINK);	      
   }
 }
-  
+// helper method for triangleShow method. takes color as parameter  
 void drawTriangle(int color){
     int j;
   for (j=30; j<60; j++){
@@ -34,24 +27,26 @@ void drawTriangle(int color){
   }
 }
 
+// method for changing color of the triangle 
 void triangleShow() {
-  int color = 0x001F;
+  int color = 0x001F; // set initial color in hex
   for(int i = 0; i < 20; i++){
-    redrawScreen = 1;
-    __delay_cycles(20000);
     drawTriangle(color);
-    __delay_cycles(20000);
-    color = color << 1;
+    __delay_cycles(40000); // delay to clk cycles to slow down color change
+    color = color << 1; // shift left 1 to current hex color
     drawTriangle(color);
   }
 }
 
+// simple rectangle used to show change using interrupts
 void drawRect() {
   fillRectangle(37,22,57,47, COLOR_BLACK);
   fillRectangle(42,27,47,37, COLOR_YELLOW);
 }
 
+// draw initialization. used to draw algorithmically rendered background for project 3
 void drawInit() {
+  
   redrawScreen = 1;
   clearScreen(COLOR_BLUE);
   int j;
@@ -74,26 +69,12 @@ void drawInit() {
   fillRectangle(0,0,20,110, COLOR_NAVY);
   drawRectOutline(35,20,60,50, COLOR_GOLD);
   fillRectangle(37,22,57,47, COLOR_WHITE);
+  
   drawString5x7(10,130,"Comp Arch1 SU 2020",COLOR_DEEP,COLOR_FOREST_GREEN);
   drawString11x16(10,140,"PROJECT 3",COLOR_BLACK,COLOR_FOREST_GREEN);
-  redrawScreen = 1;
-  /*
-  for(;;){
-    fillRectangle(37,22,57,47, COLOR_RED);
-    // __delay_cycles(20000000);
-    // redrawScreen = 1;
-    fillRectangle(37,22,57,47, COLOR_GREEN);
-    // __delay_cycles(20000000);
-    //\ redrawScreen =1;
-    fillRectangle(37,22,57,47, COLOR_BLUE);
-    //    __delay_cycles(20000000);
-    redrawScreen = 1;
-  }
-  */
-  
 }
 
-
+// used to clear the small display window to avoid overlap with the shapes
 void clearWindow() {
   fillRectangle(37,22,57,47, COLOR_WHITE);
   redrawScreen = 1;
