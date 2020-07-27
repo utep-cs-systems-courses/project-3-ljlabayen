@@ -39,10 +39,17 @@ void main()
 
 void wdt_c_handler() {
   static short count = 0;
+  static short dim = 0;
   count++;
     if (count == 125) {
       state_advance();
       count = 0;
+    }
+    if (switch_state_changed == 2) {
+      if (count == 5) {
+	state_advance();
+	count = 0;
+      }
     }
 }
   
